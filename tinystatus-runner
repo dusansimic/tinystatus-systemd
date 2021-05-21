@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/tinystatus /etc/tinystatus/checks.csv /etc/tinystatus/incidents.txt | sudo tee /var/www/tinystatus/index.html

@@ -1,0 +1,14 @@
+[Unit]
+Description=TinyStatus service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=300
+User=root
+ExecStart=sh /usr/bin/tinystatus-runner
+
+[Install]
+WantedBy=mutli-user.target

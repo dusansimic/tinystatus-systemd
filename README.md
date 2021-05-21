@@ -1,19 +1,9 @@
-# Tinystatus
+# Tinystatus Systemd service
 
-tinystatus generate an html status page via shell script.
+This is a systemd service for tinystatus. Tinystatus is a status page generator made with shell
+script.
 
-## Features
-
-* Parallel checks
-* HTTP, ping, port checks
-* HTTP expected status code (401, ...)
-* Minimal dependencies (curl, nc and coreutils)
-* Easy configuration and customisation
-* Incident history (manual)
-
-## Demo
-
-An example site is available [here](https://lab.bdro.fr/tinystatus/).
+For information about tinystatus itself, visit [tinystatus repo](https://github.com/bderenzo/tinystatus).
 
 ## Setup
 
@@ -24,6 +14,16 @@ To install tinystatus:
 * To add incidents or maintenance, edit `incidents.txt`
 * Generate status page `./tinystatus > index.html`
 * Serve the page with your favorite web server
+
+To install service:
+
+* Put `tinystatus` and `tinystatus-runner` scripts in `/usr/bin`
+* Put `tinystatus.service` in `/etc/systemd/system` and run `systemctl daemon-reload` as root
+* Put `checks.csv` and `incidents.txt` in `/etc/tinystatus`
+* Enable and start systemd service
+* Status page will be generated in `/var/www/tinystatus/index.html`
+
+Service will restart (generate status page) every 5 minutes.
 
 ## Configuration file
 
